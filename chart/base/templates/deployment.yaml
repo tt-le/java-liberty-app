@@ -48,12 +48,14 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /live
+              port: 9443
+              scheme: HTTPS
           readinessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /ready
+              port: 9443
+              scheme: HTTPS
           env:
             - name: INGRESS_HOST
               value: ""
